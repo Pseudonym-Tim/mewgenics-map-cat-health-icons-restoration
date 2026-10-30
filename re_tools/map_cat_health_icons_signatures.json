@@ -1,0 +1,114 @@
+{
+  "source_files": [
+    "src/MapCatHealthIcons.c"
+  ],
+  "symbols": {
+    "RVA_MAP_PLAYER_ICON_REFRESH": {
+      "resolver": "pattern_start_rva",
+      "search_sections": [
+        ".text"
+      ],
+      "pattern": "4C 8D 45 30 48 8B D0 48 8B CB E8 ?? ?? ?? ?? 90 48 8D 4D C0 E8 ?? ?? ?? ?? 48 81 C4 80 00 00 00",
+      "match_offset": 3
+    },
+    "RVA_GET_MAP_CONTEXT": {
+      "resolver": "pattern_start_rva",
+      "search_sections": [
+        ".text"
+      ],
+      "pattern": "48 8B 8F 28 01 00 00 83 FE 02 73 ?? BE 02 00 00 00 8B D6 48 C1 E2 03 E8 ?? ?? ?? ?? 48 89 87 28 01 00 00 89 B7 20 01 00 00 8B 87 24 01 00 00 3B F0 73 ?? 89 B7 24 01 00 00 EB ?? 8B F0 48 8B 8F 28 01 00 00 8B C6 48 89 1C C1 FF 87 24 01 00 00 80 63 0C 0F 80 63 0D 80 48 89 5C 24 50",
+      "match_offset": 1
+    },
+    "RVA_LOOKUP_CAT": {
+      "resolver": "pattern_start_rva",
+      "search_sections": [
+        ".text"
+      ],
+      "pattern": "49 8B F0 48 8B EA 4C 8B E9 4C 8B 3D ?? ?? ?? ?? 49 FF C7 4C 89 3D ?? ?? ?? ?? 48 83 C1 38",
+      "match_offset": 2
+    },
+    "RVA_CAT_MAX_HP": {
+      "resolver": "pattern_start_rva",
+      "search_sections": [
+        ".text"
+      ],
+      "pattern": "44 89 4C 24 20 48 89 54 24 10 48 89 4C 24 08 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 68 FF FF FF"
+    },
+    "RVA_SET_TIMELINE_FRAME": {
+      "resolver": "pattern_start_rva",
+      "search_sections": [
+        ".text"
+      ],
+      "pattern": "F2 0F 10 0D ?? ?? ?? ?? F2 0F 10 2D ?? ?? ?? ?? 66 0F 2F D5 48 89 42 28 48 89 42 30",
+      "match_offset": 3
+    },
+    "RVA_SET_TIMELINE_LABEL_STOP": {
+      "resolver": "pattern_start_rva",
+      "search_sections": [
+        ".text"
+      ],
+      "pattern": "F2 0F 11 44 24 30 0F 28 C5 F2 0F 59 C2 F2 0F 59 CC 66 0F 15 DB 66 0F 15 D2 F2 0F 59 DC",
+      "match_offset": 4
+    },
+    "RVA_VANILLA_FALLBACK_SETFRAME_CALL": {
+      "resolver": "pattern_start_rva",
+      "search_sections": [
+        ".text"
+      ],
+      "pattern": "E8 ?? ?? ?? ?? 48 8B C8 48 8B 5D 6F 48 8B 7C 24 20 48 8B 41 28 48 85 C0 0F 84 ?? ?? ?? ??",
+      "match_offset": 4
+    },
+    "MAP_ICON_COUNT_OFFSET": {
+      "resolver": "constant",
+      "value": 76
+    },
+    "MAP_ICON_ENTRIES_OFFSET": {
+      "resolver": "constant",
+      "value": 80
+    },
+    "MAP_ENTRY_ICON_OFFSET": {
+      "resolver": "constant",
+      "value": 0
+    },
+    "MAP_ENTRY_CAT_ID_OFFSET": {
+      "resolver": "constant",
+      "value": 16
+    },
+    "MAP_ENTRY_ACTIVE_OFFSET": {
+      "resolver": "constant",
+      "value": 24
+    },
+    "MAP_CONTEXT_CATDB_OFFSET": {
+      "resolver": "constant",
+      "value": 1432
+    },
+    "CAT_CURRENT_HP_OFFSET": {
+      "resolver": "constant",
+      "value": 1960
+    },
+    "CAT_DEAD_FLAG_OFFSET": {
+      "resolver": "constant",
+      "value": 1964
+    },
+    "CAT_STATUS_FLAGS_OFFSET": {
+      "resolver": "constant",
+      "value": 3064
+    },
+    "DISPLAY_TIMELINE_OFFSET": {
+      "resolver": "constant",
+      "value": 128
+    },
+    "TIMELINE_PLAY_FLAGS_OFFSET": {
+      "resolver": "constant",
+      "value": 9
+    },
+    "TIMELINE_MOVIE_DEF_OFFSET": {
+      "resolver": "constant",
+      "value": 208
+    },
+    "TIMELINE_CURRENT_FRAME_OFFSET": {
+      "resolver": "constant",
+      "value": 216
+    }
+  }
+}
