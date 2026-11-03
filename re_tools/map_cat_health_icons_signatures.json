@@ -8,55 +8,56 @@
       "search_sections": [
         ".text"
       ],
-      "pattern": "4C 8D 45 30 48 8B D0 48 8B CB E8 ?? ?? ?? ?? 90 48 8D 4D C0 E8 ?? ?? ?? ?? 48 81 C4 80 00 00 00",
-      "match_offset": 3
+      "pattern": "48 8B C4 55 53 56 57 41 54 41 55 41 56 41 57 48 8D A8 D8 FE FF FF 48 81 EC E8 01 00 00 0F 29 70 A8 0F 29 78 98 44 0F 29 40 88 44 0F 29 88 78 FF FF FF 44 0F 29 90 68 FF FF FF 44 0F 29 98 58 FF FF FF 44 0F 29 A0 48 FF FF FF 44 0F 29 A8 38 FF FF FF 44 0F 29 B0 28 FF FF FF 48 8B F9 45 33 ED 45 8B FD 44 89 AD 30 01 00 00 48 83 C1 38 48 8B 47 68 0F 10 80 80 00 00 00 0F 11 44 24 20 48 8D",
+      "function_entry": true
     },
     "RVA_GET_MAP_CONTEXT": {
       "resolver": "pattern_start_rva",
       "search_sections": [
         ".text"
       ],
-      "pattern": "48 8B 8F 28 01 00 00 83 FE 02 73 ?? BE 02 00 00 00 8B D6 48 C1 E2 03 E8 ?? ?? ?? ?? 48 89 87 28 01 00 00 89 B7 20 01 00 00 8B 87 24 01 00 00 3B F0 73 ?? 89 B7 24 01 00 00 EB ?? 8B F0 48 8B 8F 28 01 00 00 8B C6 48 89 1C C1 FF 87 24 01 00 00 80 63 0C 0F 80 63 0D 80 48 89 5C 24 50",
-      "match_offset": 1
+      "pattern": "48 89 5C 24 08 57 48 83 EC 20 48 8B 79 18 BA 0C 05 00 00 48 8B 5F 08 48 8B CB E8 ?? ?? ?? ?? 48 8B 43 20 48 8B 80 C0 50 00 00 48 85 C0 74 12 83",
+      "function_entry": true
     },
     "RVA_LOOKUP_CAT": {
       "resolver": "pattern_start_rva",
       "search_sections": [
         ".text"
       ],
-      "pattern": "49 8B F0 48 8B EA 4C 8B E9 4C 8B 3D ?? ?? ?? ?? 49 FF C7 4C 89 3D ?? ?? ?? ?? 48 83 C1 38",
-      "match_offset": 2
+      "pattern": "48 89 5C 24 08 48 89 74 24 20 48 89 54 24 10 57 48 83 EC 40 4C 8B C2 48 8B F9 48 83 FA FF 0F 84 69 02 00 00 45 0F B6 D8 48 B8 25 23 22 84 E4 9C",
+      "function_entry": true
     },
     "RVA_CAT_MAX_HP": {
       "resolver": "pattern_start_rva",
       "search_sections": [
         ".text"
       ],
-      "pattern": "44 89 4C 24 20 48 89 54 24 10 48 89 4C 24 08 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 68 FF FF FF"
+      "pattern": "48 89 5C 24 08 57 48 83 EC 70 0F 28 02 4C 8D 44 24 30 F2 0F 10 4A 10 41 B1 01 8B 42 18 48 8B F9 48 8D 54 24 50 0F 29 44 24 30 F2 0F 11 4C 24 40",
+      "function_entry": true
     },
     "RVA_SET_TIMELINE_FRAME": {
       "resolver": "pattern_start_rva",
       "search_sections": [
         ".text"
       ],
-      "pattern": "F2 0F 10 0D ?? ?? ?? ?? F2 0F 10 2D ?? ?? ?? ?? 66 0F 2F D5 48 89 42 28 48 89 42 30",
-      "match_offset": 3
+      "pattern": "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 81 D0 00 00 00 33 F6 85 D2 44 8B C6 48 8B F9 44 0F 49 C2 8B 18 FF CB 44 3B C3 41 0F 4E D8 39",
+      "function_entry": true
     },
     "RVA_SET_TIMELINE_LABEL_STOP": {
       "resolver": "pattern_start_rva",
       "search_sections": [
         ".text"
       ],
-      "pattern": "F2 0F 11 44 24 30 0F 28 C5 F2 0F 59 C2 F2 0F 59 CC 66 0F 15 DB 66 0F 15 D2 F2 0F 59 DC",
-      "match_offset": 4
+      "pattern": "48 89 5C 24 08 48 89 6C 24 18 48 89 74 24 20 48 89 54 24 10 57 48 83 EC 30 48 8B DA 48 8B F9 48 8B A9 D0 00 00 00 4C 8B 42 10 48 83 7A 18 0F 76 03 48 8B 12 33 C9 49 B9 25 23 22 84 E4 9C F2 CB 4D 85 C0 74 1E 49 BA B3 01 00 00 00 01 00 00 90 0F B6 04 0A 4C 33 C8 4D 0F AF CA 48 FF C1 49 3B C8 72 ED 4C 8B C3 48 8D 54 24 20 48 8D 4D 20 E8 ?? ?? ?? ?? 48 8B 48 08 48 85 C9 75 04 48 8B 4D 28 48 3B 4D 28 74 23 4C 8B C3 48 8D 54 24 20 48 8D 4D 20 E8 ?? ?? ?? ?? 48 8B 10 8B 52 30 48 8B CF E8 ?? ?? ?? ?? 80 67 09 FD 80 67 09 FD 48 8B",
+      "function_entry": true
     },
     "RVA_VANILLA_FALLBACK_SETFRAME_CALL": {
       "resolver": "pattern_start_rva",
       "search_sections": [
         ".text"
       ],
-      "pattern": "E8 ?? ?? ?? ?? 48 8B C8 48 8B 5D 6F 48 8B 7C 24 20 48 8B 41 28 48 85 C0 0F 84 ?? ?? ?? ??",
-      "match_offset": 4
+      "pattern": "49 8B 8D 80 00 00 00 48 85 C9 74 23 48 8B 01 FF 10 83 F8 02 75 09 49 8B B5 80 00 00 00 EB 02 33 F6 33 D2 48 8B CE E8 ?? ?? ?? ?? 80 66 09 FD 4C",
+      "match_offset": 38
     },
     "MAP_ICON_COUNT_OFFSET": {
       "resolver": "constant",

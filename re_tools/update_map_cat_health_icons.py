@@ -252,8 +252,27 @@ def main() -> int:
     resolved: dict[str, int] = {}
     for symbol_name, config_any in signature_config["symbols"].items():
         result = resolve_symbol(pe_image, symbol_name, dict(config_any))
+        
+        if config_any.get("function_entry"):
+            table_rva, table_size = pe_image.data_directory(3)
+            table_offset, _ = pe_image.rva_to_file_offset(table_rva)
+
+            entries = {
+                struct.unpack_from("<I", pe_image.data, offset)[0]
+                for offset in range(table_offset, table_offset + table_size, 12)
+            }
+
+            if result.value not in entries:
+                raise RuntimeError(f"{symbol_name}: resolved address is not a function entry!")
         resolved[symbol_name] = result.value
         print(f"{symbol_name} = 0x{result.value:X} ({result.section_name}, file+0x{result.file_offset:X})")
+
+    call_offset, _ = pe_image.rva_to_file_offset(resolved["RVA_VANILLA_FALLBACK_SETFRAME_CALL"])
+    displacement = struct.unpack_from("<i", pe_image.data, call_offset + 1)[0]
+    target = resolved["RVA_VANILLA_FALLBACK_SETFRAME_CALL"] + 5 + displacement
+
+    if pe_image.data[call_offset] != 0xE8 or target != resolved["RVA_SET_TIMELINE_FRAME"]:
+        raise RuntimeError("Map fallback is not a call to the resolved timeline frame setter!")
 
     if args.dry_run:
         print("Dry run complete. Source files were not modified.")
